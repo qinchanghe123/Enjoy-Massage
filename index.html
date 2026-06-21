@@ -1,532 +1,983 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEMSTONE SPA - Philadelphia</title>
-    <meta name="description" content="Best Massage and Spa in Philadelphia. Relax and unwind at GEMSTONE SPA.">
-    <style>
-        /* --- CSS Reset & Variables --- */
-        :root {
-            --primary-color: #00b894;
-            --gold-color: #d4af37;
-            --bg-dark: #101514;
-            --bg-card: #1b2422;
-            --text-light: #f0f0f0;
-            --text-gray: #aaaaaa;
-            --success: #4caf50;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enjoy Massage | Billings, MT</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
+    :root {
+      --cream: #f8f1e8;
+      --sand: #e8d8c3;
+      --brown: #8b5e3c;
+      --dark: #2b211a;
+      --green: #74846b;
+      --white: #ffffff;
+      --shadow: 0 18px 45px rgba(43, 33, 26, 0.16);
+    }
 
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        ul {
-            list-style: none;
-        }
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--dark);
+      background: var(--cream);
+      line-height: 1.6;
+    }
 
-        /* --- Utilities --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: var(--gold-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 10px auto 0;
-        }
+    img {
+      width: 100%;
+      display: block;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(45deg, var(--primary-color), #00856b);
-            color: white;
-            border-radius: 50px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 184, 148, 0.35);
-        }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(43, 33, 26, 0.42);
+      backdrop-filter: blur(10px);
+      color: var(--white);
+    }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 184, 148, 0.55);
-        }
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
 
-        /* --- Header --- */
-        header {
-            background-color: rgba(16, 21, 20, 0.95);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #2a3633;
-            backdrop-filter: blur(10px);
-        }
+    nav {
+      display: flex;
+      gap: 26px;
+      font-size: 0.95rem;
+    }
 
-        .nav-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    nav a {
+      opacity: 0.9;
+      transition: 0.3s;
+    }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--gold-color);
-            letter-spacing: 2px;
-        }
+    nav a:hover {
+      opacity: 1;
+      color: #ffe0b5;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--white);
+      overflow: hidden;
+    }
 
-        .nav-links a {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: var(--text-light);
-        }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      animation: heroFade 18s infinite;
+      z-index: 0;
+    }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(24, 18, 14, 0.5), rgba(24, 18, 14, 0.55)),
+        radial-gradient(circle, rgba(255,255,255,0.12), transparent 55%);
+      z-index: 1;
+    }
 
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+      padding: 0 24px;
+    }
 
-        /* --- Hero Section --- */
-        .hero {
-            height: 60vh;
-            background: radial-gradient(circle at center, #24322f 0%, #101514 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            border-bottom: 1px solid #2a3633;
-        }
+    .hero-content span {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.85rem;
+      color: #ffe6c7;
+    }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--gold-color);
-            text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.3);
-        }
+    .hero-content h1 {
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      line-height: 1;
+      margin: 18px 0;
+    }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #ddd;
-        }
+    .hero-content p {
+      font-size: 1.25rem;
+      max-width: 640px;
+      margin: 0 auto 32px;
+      color: #fff6ed;
+    }
 
-        /* --- Introduction Sections --- */
-        .intro-section {
-            padding: 60px 0;
-            background-color: #151d1b;
-            border-bottom: 1px solid #22302d;
-        }
+    .btn {
+      display: inline-block;
+      padding: 15px 32px;
+      border-radius: 999px;
+      background: var(--brown);
+      color: var(--white);
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+    }
 
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: flex-start;
-        }
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #70472b;
+    }
 
-        .intro-text h2 {
-            font-size: 2rem;
-            color: var(--text-light);
-            margin-bottom: 20px;
-            border-left: 4px solid var(--primary-color);
-            padding-left: 15px;
-        }
-        
-        .intro-text p {
-            color: var(--text-gray);
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            text-align: justify;
-        }
+    section {
+      padding: 95px 7%;
+    }
 
-        .why-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
+    .section-heading {
+      max-width: 720px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
 
-        .why-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 15px;
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            text-align: justify;
-        }
+    .section-heading span {
+      color: var(--brown);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
 
-        .why-list li::before {
-            content: '💎';
-            position: absolute;
-            left: 0;
-            top: 2px;
-            color: var(--primary-color);
-            font-size: 1rem;
-        }
+    .section-heading h2 {
+      font-size: clamp(2.1rem, 4vw, 3.6rem);
+      margin: 12px 0;
+      line-height: 1.1;
+    }
 
-        .features-grid {
-            display: none;
-        }
+    .section-heading p {
+      color: #68574b;
+      font-size: 1.05rem;
+    }
 
-        /* --- Girls/Staff Section: Waterfall Layout --- */
-        .staff-section {
-            padding: 80px 0;
-            background-color: var(--bg-dark);
-        }
+    .about {
+      background: var(--white);
+    }
 
-        .staff-masonry {
-            column-count: 3;
-            column-gap: 24px;
-        }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
 
-        .masonry-item {
-            display: inline-block;
-            width: 100%;
-            margin: 0 0 24px;
-            background-color: var(--bg-card);
-            border-radius: 15px;
-            overflow: hidden;
-            border: 1px solid #2c3c38;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            break-inside: avoid;
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
-        }
+    .about-card {
+      background: var(--cream);
+      padding: 38px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
 
-        .masonry-item:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 14px 36px rgba(0,0,0,0.45);
-        }
+    .about-card h3 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
 
-        .masonry-item img {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            background-color: #333;
-        }
+    .about-card p {
+      color: #5f5148;
+      margin-bottom: 14px;
+    }
 
-        .emoji-divider {
-            text-align: center;
-            font-size: 1.5rem;
-            margin: 20px 0;
-            opacity: 0.7;
-        }
+    .about-image {
+      min-height: 470px;
+      border-radius: 32px;
+      background:
+        linear-gradient(rgba(43,33,26,0.14), rgba(43,33,26,0.14)),
+        url("https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg") center/cover;
+      box-shadow: var(--shadow);
+    }
 
-        /* --- Info & Payments --- */
-        .info-section {
-            padding: 80px 0;
-            background: var(--bg-dark);
-        }
+    .services {
+      background: var(--cream);
+    }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
 
-        .info-box {
-            background: var(--bg-card);
-            padding: 30px;
-            border-radius: 15px;
-            height: 100%;
-        }
+    .service-card {
+      background: var(--white);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
 
-        .info-item {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
-        
-        .info-icon {
-            font-size: 1.2rem;
-            color: var(--gold-color);
-            margin-top: 3px;
-        }
+    .carousel {
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+      background: #ddd;
+    }
 
-        .payment-methods {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
+    .carousel img {
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
 
-        .pay-badge {
-            background: #263330;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            border: 1px solid #344843;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .map-container {
-            width: 100%;
-            height: 250px;
-            margin-top: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid #2c3c38;
-        }
+    .carousel img.active {
+      opacity: 1;
+    }
 
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+    .service-content {
+      padding: 28px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* --- Footer --- */
-        footer {
-            background: #000;
-            padding: 30px 0;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-        }
+    .service-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
 
-        /* --- Responsive --- */
-        @media (max-width: 992px) {
-            .staff-masonry {
-                column-count: 2;
-            }
-        }
+    .service-content p {
+      color: #66584f;
+      margin-bottom: 18px;
+    }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+    .price-list {
+      margin-top: auto;
+      background: #fbf7f1;
+      border-radius: 18px;
+      padding: 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
 
-            .mobile-menu-btn {
-                display: block;
-            }
+    .price-list strong {
+      color: var(--brown);
+      display: block;
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px dashed #dcc8b1;
+      padding: 6px 0;
+    }
 
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
+    .price-row:last-child {
+      border-bottom: none;
+    }
 
-            .intro-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
+    .note {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--green);
+      font-weight: 700;
+    }
 
-        @media (max-width: 560px) {
-            .staff-masonry {
-                column-count: 1;
-            }
+    .booking {
+      background:
+        linear-gradient(rgba(43, 33, 26, 0.76), rgba(43, 33, 26, 0.76)),
+        url("https://i.pinimg.com/736x/ac/a6/69/aca669d5a5fe654a32f0f6b3c5138275.jpg") center/cover fixed;
+      color: var(--white);
+      text-align: center;
+    }
 
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    .booking-box {
+      max-width: 760px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 30px;
+      padding: 42px;
+      backdrop-filter: blur(8px);
+    }
+
+    .booking-box h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .booking-box p {
+      color: #fff2e4;
+      margin-bottom: 28px;
+      font-size: 1.08rem;
+    }
+
+    .reviews {
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .review-marquee {
+      display: flex;
+      gap: 22px;
+      width: max-content;
+      margin-bottom: 22px;
+    }
+
+    .review-marquee.row-one {
+      animation: scrollLeft 42s linear infinite;
+    }
+
+    .review-marquee.row-two {
+      animation: scrollRight 42s linear infinite;
+    }
+
+    .review-card {
+      width: 360px;
+      min-height: 170px;
+      background: var(--cream);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 12px 28px rgba(43, 33, 26, 0.08);
+      font-family: Arial, sans-serif;
+    }
+
+    .stars {
+      color: #c78a43;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .review-card p {
+      color: #55483f;
+      font-size: 0.96rem;
+      margin-bottom: 12px;
+    }
+
+    .review-card strong {
+      color: var(--dark);
+    }
+
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    @keyframes scrollRight {
+      from { transform: translateX(-50%); }
+      to { transform: translateX(0); }
+    }
+
+    .faqs {
+      background: var(--cream);
+    }
+
+    .faq-wrap {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: 18px;
+      margin-bottom: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 24px rgba(43, 33, 26, 0.08);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 22px 26px;
+      background: transparent;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      color: var(--dark);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      font-family: Arial, sans-serif;
+      color: #5e5148;
+    }
+
+    .faq-answer p {
+      padding: 0 26px 22px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 180px;
+    }
+
+    .contact {
+      background: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .contact-info {
+      background: var(--cream);
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-info h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-line {
+      margin-bottom: 18px;
+      font-family: Arial, sans-serif;
+      color: #55483f;
+    }
+
+    .contact-line strong {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--brown);
+      margin-bottom: 3px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 430px;
+      border: 0;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      background: var(--dark);
+      color: #e9dccd;
+      text-align: center;
+      padding: 28px 7%;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @keyframes heroFade {
+      0%, 30% {
+        background-image: url("https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg");
+      }
+      33%, 63% {
+        background-image: url("https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg");
+      }
+      66%, 100% {
+        background-image: url("https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg");
+      }
+    }
+
+    @media (max-width: 980px) {
+      nav {
+        display: none;
+      }
+
+      .about-grid,
+      .services-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 6%;
+      }
+
+      section {
+        padding: 78px 6%;
+      }
+
+      .booking-box {
+        padding: 30px 22px;
+      }
+
+      .review-card {
+        width: 300px;
+      }
+
+      .carousel {
+        height: 230px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <a href="#home" class="logo">Enjoy Massage</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#booking">Booking</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faqs">FAQs</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <!-- Header -->
-    <header>
-        <div class="container nav-flex">
-            <div class="logo">GEMSTONE SPA</div>
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#staff">Girls</a>
-                <a href="#info">Contact</a>
-                <a href="tel:+12673078655" style="color:var(--primary-color);">(267) 307-8655</a>
-            </nav>
-            <div class="mobile-menu-btn" onclick="alert('Please scroll down for info')">☰</div>
-        </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Relax & Rejuvenate</h1>
-            <p>6650 Frankford Ave, Philadelphia, PA 19135</p>
-            <div style="margin-bottom: 20px; font-weight: bold; color: var(--gold-color);">
-                OPEN: 10:00 AM - 2:00 AM
-            </div>
-            <a href="tel:+12673078655" class="btn">Call (267) 307-8655</a>
-        </div>
+  <main>
+    <!-- Home -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <span>Relax • Restore • Renew</span>
+        <h1>Enjoy Massage</h1>
+        <p>
+          Step into a quiet, private space designed for deep relaxation,
+          soothing body care, and a refreshed state of mind.
+        </p>
+        <a href="#booking" class="btn">Book Now</a>
+      </div>
     </section>
 
-    <!-- Who We Are & Why Choose Us -->
-    <section id="about" class="intro-section">
-        <div class="container">
-            <div class="intro-grid">
-                <div class="intro-text">
-                    <h2>Who We Are</h2>
-                    <p>
-                        <strong>GEMSTONE SPA</strong> Is An All-In-One "Asian Fusion Men's Super Club" With Specialty On Elite Companionship & Nuru Massage & Men's SPA. We Have At Least 9 Professional Angels At Single Place Lineup For You To Choose From.
-                    </p>
-                    <p>
-                        All Strictly Selected Beauty Pros Are Rotated By Shift Every Week, They Come From Different Countries All Over The World - "Asian" + "European" + "Latino" + "American Domestic" + "Mix Blood"! We're Committed To Develop The Best Companionship & Nuru Massage Techniques & Men's Prostate Health Spa Skills. We're Dedicated To Interpret The Best Fusion Culture Into The Fabulous Way!
-                    </p>
-                </div>
+    <!-- About Us -->
+    <section class="about" id="about">
+      <div class="section-heading">
+        <span>About Us</span>
+        <h2>A calm place to slow down</h2>
+        <p>
+          Enjoy Massage offers a clean, quiet, and private wellness environment
+          where every visit is centered on comfort, relaxation, and personal care.
+        </p>
+      </div>
 
-                <div>
-                    <h2 style="font-size: 1.5rem; color: #fff; margin-bottom: 20px; text-align: center;">Why Choose Us</h2>
-                    
-                    <p style="margin-bottom: 15px; color: #fff; font-style: italic; text-align: center; border-bottom: 1px solid #333; padding-bottom: 10px;">
-                        Dedication Of Samurai Spirit ( Bushido Culture ) Coming Along With "GEMSTONE SPA" As Always! This Is The Highest State Of Service In The World! No Others Can Be Mentioned In The Same Breath!
-                    </p>
-
-                    <ul class="why-list">
-                        <li>
-                            At Here, You’ll Get The Most Choices Of High-End & Up-Scale Talented Angels, Which You’ll Never Be Able To Get So Many Great Choices Of Hotties From Other Regular Places In Philadelphia!
-                        </li>
-                        <li>
-                            We Change New Angels Very Frequently! That Means All GEMSTONE SPA Angels Will Be Replaced With Brand New Ones In Just Few Days! You Will Get The Freshest And Newest Ones For Sure!
-                        </li>
-                        <li>
-                            At Here, We Prepare Five Race Groups Of The Selected Angels! Not Boring Any More! The Taste Is Being Diversified! We Offer “Asian Group”; “Hispanic Group”; “European Group”; “American Domestic Group”; "Mix Blood Group".
-                        </li>
-                        <li>
-                            Our Place Is The Only One “Fictitious Land Of Peace” In Philadelphia! No Bothering! No Interference! No Hurry! No Concern! Feel like Timeless & Spaceless! All You Need To Do Is ENJOY!
-                        </li>
-                    </ul>
-                </div>
-            </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Designed for comfort and privacy</h3>
+          <p>
+            Our space is created to help you disconnect from daily stress the
+            moment you arrive. Soft lighting, peaceful treatment rooms, and a
+            calm atmosphere support a more relaxing massage experience.
+          </p>
+          <p>
+            We focus on simple, thoughtful body care that helps ease tension,
+            refresh tired muscles, and leave you feeling more balanced.
+          </p>
+          <p>
+            Whether you are visiting after a long workday, travel, or everyday
+            fatigue, Enjoy Massage is here to provide a peaceful reset.
+          </p>
         </div>
+
+        <div class="about-image" aria-label="Relaxing massage room"></div>
+      </div>
     </section>
 
-    <!-- Staff Section / Only Image Waterfall -->
-    <section id="staff" class="staff-section">
-        <div class="container">
-            <h2 class="section-title">Our Ladies</h2>
+    <!-- Services & Pricing -->
+    <section class="services" id="services">
+      <div class="section-heading">
+        <span>Services & Pricing</span>
+        <h2>Massage services made for relaxation</h2>
+        <p>
+          Choose the session length that fits your day. Cash discount pricing
+          and regular pricing are shown below.
+        </p>
+      </div>
 
-            <div class="staff-masonry">
-                <div class="masonry-item">
-                    <img src="1.jpg" alt="Our Ladies 1" onerror="this.src='https://via.placeholder.com/400x600/333/fff?text=1.jpg+Missing'">
-                </div>
+      <div class="services-grid">
+        <!-- Full Body Massage -->
+        <article class="service-card">
+          <div class="carousel service-carousel">
+            <img class="active" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1L-0O6Juxasb8QicSAXdnWLSQjLrVvGVr8HPij_dvsgW7cWCeMVBGB-12hqGhPUkx5oA&usqp=CAU" alt="Full body massage" />
+            <img src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" alt="Full body massage therapy" />
+            <img src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Relaxing body work massage" />
+            <img src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Body work massage session" />
+          </div>
 
-                <div class="masonry-item">
-                    <img src="2.jpg" alt="Our Ladies 2" onerror="this.src='https://via.placeholder.com/400x600/333/fff?text=2.jpg+Missing'">
-                </div>
+          <div class="service-content">
+            <h3>Full Body Massage</h3>
+            <p>
+              A relaxing full-body session designed to ease everyday tension,
+              loosen tired muscles, and support whole-body comfort. Ideal for
+              stress, back and shoulder tightness, travel fatigue, or regular
+              self-care.
+            </p>
 
-                <div class="masonry-item">
-                    <img src="3.jpg" alt="Our Ladies 3" onerror="this.src='https://via.placeholder.com/400x600/333/fff?text=3.jpg+Missing'">
-                </div>
+            <div class="price-list">
+              <strong>Cash Discount Pricing</strong>
+              <div class="price-row"><span>30 minutes</span><span>$50</span></div>
+              <div class="price-row"><span>45 minutes</span><span>$60</span></div>
+              <div class="price-row"><span>60 minutes</span><span>$70</span></div>
+              <div class="price-row"><span>90 minutes</span><span>$110</span></div>
+              <div class="price-row"><span>120 minutes</span><span>$140</span></div>
+
+              <br />
+
+              <strong>Regular Pricing</strong>
+              <div class="price-row"><span>30 minutes</span><span>$53</span></div>
+              <div class="price-row"><span>45 minutes</span><span>$63</span></div>
+              <div class="price-row"><span>60 minutes</span><span>$73</span></div>
+              <div class="price-row"><span>90 minutes</span><span>$113</span></div>
+              <div class="price-row"><span>120 minutes</span><span>$143</span></div>
+
+              <div class="note">Hot Stones: Free on Request</div>
             </div>
-        </div>
+          </div>
+        </article>
+
+        <!-- Foot Massage -->
+        <article class="service-card">
+          <div class="carousel service-carousel">
+            <img class="active" src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg" alt="Foot massage" />
+            <img src="https://i.pinimg.com/1200x/71/a4/b7/71a4b75a19fbadf33bc6dc340e91340c.jpg" alt="Foot reflexology massage" />
+            <img src="https://i.pinimg.com/1200x/2b/85/42/2b8542fd0d099c9771bb5b332d6f51a9.jpg" alt="Relaxing foot massage" />
+            <img src="https://i.pinimg.com/736x/76/48/7c/76487c07076e4b41fcce7c4ea35e2005.jpg" alt="Foot massage treatment" />
+          </div>
+
+          <div class="service-content">
+            <h3>Foot Massage</h3>
+            <p>
+              Focused care for tired feet and lower-leg fatigue. This session is
+              a great choice for guests who stand, walk, travel, or work long
+              hours and want soothing relief from foot tension.
+            </p>
+
+            <div class="price-list">
+              <strong>Cash Discount Pricing</strong>
+              <div class="price-row"><span>45 minutes</span><span>$60</span></div>
+              <div class="price-row"><span>60 minutes</span><span>$70</span></div>
+
+              <br />
+
+              <strong>Regular Pricing</strong>
+              <div class="price-row"><span>45 minutes</span><span>$63</span></div>
+              <div class="price-row"><span>60 minutes</span><span>$73</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Body & Foot Combo Massage -->
+        <article class="service-card">
+          <div class="carousel service-carousel">
+            <img class="active" src="https://i.pinimg.com/736x/f6/33/48/f6334826491861572c8e532a6a099cdc.jpg" alt="Body and foot combo massage" />
+            <img src="https://i.pinimg.com/736x/51/25/ef/5125efc1d8af786696c07c8bd95452ab.jpg" alt="Foot portion of combo massage" />
+            <img src="https://i.pinimg.com/736x/97/dc/96/97dc9699bc6c850ecd8776eaee3b7898.jpg" alt="Body portion of combo massage" />
+          </div>
+
+          <div class="service-content">
+            <h3>Body & Foot Combo Massage</h3>
+            <p>
+              A balanced session combining full-body relaxation with focused foot
+              care. Best for guests who want overall muscle relief plus extra
+              attention for tired feet in one complete appointment.
+            </p>
+
+            <div class="price-list">
+              <strong>Cash Discount Pricing</strong>
+              <div class="price-row"><span>60 & 30 minutes</span><span>$110</span></div>
+
+              <br />
+
+              <strong>Regular Pricing</strong>
+              <div class="price-row"><span>60 & 30 minutes</span><span>$113</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- Info Section with MAP -->
-    <section id="info" class="info-section">
-        <div class="container">
-            <div class="info-grid">
-                
-                <div class="info-box">
-                    <h3 style="color:white; margin-bottom:20px;">Visit Us</h3>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">📍</div>
-                        <div>
-                            <strong>Address:</strong><br>
-                            6650 Frankford Ave,<br>Philadelphia, PA 19135
-                        </div>
-                    </div>
-
-                    <div class="map-container">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=6650+Frankford+Ave,+Philadelphia,+PA+19135&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-
-                    <div class="info-item" style="margin-top: 20px;">
-                        <div class="info-icon">📞</div>
-                        <div>
-                            <strong>Phone:</strong><br>
-                            <a href="tel:+12673078655" style="color:var(--primary-color); font-weight:bold; font-size:1.2rem;">(267) 307-8655</a>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-icon">🕒</div>
-                        <div>
-                            <strong>Business Hours:</strong><br>
-                            10:00 AM - 2:00 AM Daily
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-box">
-                    <h3 style="color:white; margin-bottom:20px;">We Accept</h3>
-                    <div class="payment-methods">
-                        <div class="pay-badge">💵 Cash</div>
-                        <div class="pay-badge">📱 Zelle</div>
-                        <div class="pay-badge">💸 Cash App</div>
-                        <div class="pay-badge">🍏 Apple Pay</div>
-                        <div class="pay-badge">💳 Credit Card</div>
-                    </div>
-                    <p style="margin-top: 20px; font-size: 0.9rem; color: #888;">
-                        Secure and discreet payments available.
-                    </p>
-                </div>
-
-            </div>
-        </div>
+    <!-- Booking -->
+    <section class="booking" id="booking">
+      <div class="booking-box">
+        <h2>Ready to relax?</h2>
+        <p>
+          Call Enjoy Massage to book your appointment. Same-day availability may
+          be limited, so calling ahead is recommended.
+        </p>
+        <a class="btn" href="tel:4067026740">Call 406-702-6740</a>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 GEMSTONE SPA Philadelphia. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+      <div class="section-heading">
+        <span>Testimonials</span>
+        <h2>Guests love the calm, relaxing experience</h2>
+      </div>
 
+      <div class="review-marquee row-one">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Very relaxing from start to finish. The room was quiet, clean, and comfortable. I left feeling refreshed.”</p>
+          <strong>— Emily R.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“I booked a full body massage after a stressful week. It helped my shoulders and back feel so much better.”</p>
+          <strong>— Daniel M.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Great place for a peaceful massage. The atmosphere is simple, private, and very calming.”</p>
+          <strong>— Sarah T.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“The foot massage was exactly what I needed after being on my feet all day. I will definitely come back.”</p>
+          <strong>— Chris W.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Clean space, fair pricing, and a relaxing experience. The combo massage was a great choice.”</p>
+          <strong>— Amanda L.</strong>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Very relaxing from start to finish. The room was quiet, clean, and comfortable. I left feeling refreshed.”</p>
+          <strong>— Emily R.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“I booked a full body massage after a stressful week. It helped my shoulders and back feel so much better.”</p>
+          <strong>— Daniel M.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Great place for a peaceful massage. The atmosphere is simple, private, and very calming.”</p>
+          <strong>— Sarah T.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“The foot massage was exactly what I needed after being on my feet all day. I will definitely come back.”</p>
+          <strong>— Chris W.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“Clean space, fair pricing, and a relaxing experience. The combo massage was a great choice.”</p>
+          <strong>— Amanda L.</strong>
+        </div>
+      </div>
+
+      <div class="review-marquee row-two">
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“A wonderful spot in Billings for a quiet massage. I liked how peaceful and private it felt.”</p>
+          <strong>— Michael B.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“The full body massage helped release a lot of tension. The whole visit felt smooth and relaxing.”</p>
+          <strong>— Jennifer K.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“I appreciate the clear pricing and calm environment. This is a good place to unwind.”</p>
+          <strong>— Laura P.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“My feet felt lighter after the session. It was comfortable, quiet, and worth it.”</p>
+          <strong>— Robert H.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“The body and foot combo was perfect. I felt relaxed all evening after my appointment.”</p>
+          <strong>— Nicole S.</strong>
+        </div>
+
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“A wonderful spot in Billings for a quiet massage. I liked how peaceful and private it felt.”</p>
+          <strong>— Michael B.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“The full body massage helped release a lot of tension. The whole visit felt smooth and relaxing.”</p>
+          <strong>— Jennifer K.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“I appreciate the clear pricing and calm environment. This is a good place to unwind.”</p>
+          <strong>— Laura P.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“My feet felt lighter after the session. It was comfortable, quiet, and worth it.”</p>
+          <strong>— Robert H.</strong>
+        </div>
+        <div class="review-card">
+          <div class="stars">★★★★★</div>
+          <p>“The body and foot combo was perfect. I felt relaxed all evening after my appointment.”</p>
+          <strong>— Nicole S.</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section class="faqs" id="faqs">
+      <div class="section-heading">
+        <span>FAQs</span>
+        <h2>Common questions</h2>
+      </div>
+
+      <div class="faq-wrap">
+        <div class="faq-item">
+          <button class="faq-question">
+            How early should I arrive?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Please arrive about 5–10 minutes early so you have time to check in, relax, and begin your session comfortably.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I get a massage if I have an injury?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Please let us know before your session if you have an injury, recent surgery, or medical concern. For serious conditions, consult your healthcare provider first.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What is your cancellation policy?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Please call as soon as possible if you need to cancel or reschedule, so the appointment time can be made available to another guest.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is there parking available?
+            <span>+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Parking availability may vary nearby. Please allow a few extra minutes before your appointment for parking and arrival.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section class="contact" id="contact">
+      <div class="section-heading">
+        <span>Contact & Location</span>
+        <h2>Visit Enjoy Massage</h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Enjoy Massage</h3>
+
+          <div class="contact-line">
+            <strong>Phone</strong>
+            <a href="tel:4067026740">406-702-6740</a>
+          </div>
+
+          <div class="contact-line">
+            <strong>Address</strong>
+            801 Grand Ave,<br />
+            Billings, MT 59102
+          </div>
+
+          <div class="contact-line">
+            <strong>Business Hours</strong>
+            Daily: 9:00 AM – 9:30 PM
+          </div>
+
+          <a class="btn" href="tel:4067026740">Book by Phone</a>
+        </div>
+
+        <iframe
+          title="Enjoy Massage Google Map"
+          loading="lazy"
+          allowfullscreen
+          src="https://www.google.com/maps?q=801%20Grand%20Ave%2C%20Billings%2C%20MT%2059102&output=embed">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Enjoy Massage. All Rights Reserved.
+  </footer>
+
+  <script>
+    // Service card carousels
+    document.querySelectorAll(".service-carousel").forEach((carousel) => {
+      const slides = carousel.querySelectorAll("img");
+      let index = 0;
+
+      setInterval(() => {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }, 3200);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll(".faq-question").forEach((button) => {
+      button.addEventListener("click", () => {
+        const item = button.parentElement;
+        const isActive = item.classList.contains("active");
+
+        document.querySelectorAll(".faq-item").forEach((faq) => {
+          faq.classList.remove("active");
+          faq.querySelector("span").textContent = "+";
+        });
+
+        if (!isActive) {
+          item.classList.add("active");
+          button.querySelector("span").textContent = "−";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
