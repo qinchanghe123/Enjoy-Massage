@@ -52,7 +52,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: rgba(43, 33, 26, 0.42);
+      background: rgba(43, 33, 26, 0.45);
       backdrop-filter: blur(10px);
       color: var(--white);
     }
@@ -65,7 +65,7 @@
 
     nav {
       display: flex;
-      gap: 26px;
+      gap: 22px;
       font-size: 0.95rem;
     }
 
@@ -104,7 +104,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(rgba(24, 18, 14, 0.5), rgba(24, 18, 14, 0.55)),
+        linear-gradient(rgba(24, 18, 14, 0.52), rgba(24, 18, 14, 0.58)),
         radial-gradient(circle, rgba(255,255,255,0.12), transparent 55%);
       z-index: 1;
     }
@@ -112,7 +112,7 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 850px;
+      max-width: 880px;
       padding: 0 24px;
     }
 
@@ -131,29 +131,52 @@
 
     .hero-content p {
       font-size: 1.25rem;
-      max-width: 640px;
+      max-width: 660px;
       margin: 0 auto 32px;
       color: #fff6ed;
     }
 
+    .hero-actions,
+    .action-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
     .btn {
       display: inline-block;
-      padding: 15px 32px;
-      border-radius: 999px;
+      padding: 12px 18px;
+      border-radius: 6px;
       background: var(--brown);
       color: var(--white);
-      font-weight: 700;
-      box-shadow: var(--shadow);
-      transition: 0.3s;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
       border: none;
       cursor: pointer;
-      font-family: inherit;
-      font-size: 1rem;
+      transition: 0.3s;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover,
+    .anywhere-book-now-button:hover {
+      transform: translateY(-3px);
     }
 
     .btn:hover {
-      transform: translateY(-3px);
       background: #70472b;
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.28);
     }
 
     section {
@@ -161,7 +184,7 @@
     }
 
     .section-heading {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto 48px;
       text-align: center;
     }
@@ -220,6 +243,57 @@
         linear-gradient(rgba(43,33,26,0.14), rgba(43,33,26,0.14)),
         url("https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg") center/cover;
       box-shadow: var(--shadow);
+    }
+
+    .approach {
+      background: linear-gradient(180deg, var(--cream), #fffaf4);
+    }
+
+    .approach-intro {
+      max-width: 920px;
+      margin: 0 auto 34px;
+      background: var(--white);
+      padding: 34px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .approach-intro h3 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .approach-intro p {
+      color: #5f5148;
+      margin-bottom: 10px;
+      font-size: 1.04rem;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .approach-card {
+      background: var(--white);
+      padding: 24px;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(43, 33, 26, 0.1);
+      border: 1px solid rgba(139, 94, 60, 0.1);
+    }
+
+    .approach-card h4 {
+      color: var(--brown);
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .approach-card p {
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #5e5148;
     }
 
     .services {
@@ -315,8 +389,8 @@
 
     .booking {
       background:
-        linear-gradient(rgba(43, 33, 26, 0.76), rgba(43, 33, 26, 0.76)),
-        url("https://i.pinimg.com/736x/ac/a6/69/aca669d5a5fe654a32f0f6b3c5138275.jpg") center/cover fixed;
+        linear-gradient(rgba(43, 33, 26, 0.78), rgba(43, 33, 26, 0.78)),
+        url("https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg") center/cover fixed;
       color: var(--white);
       text-align: center;
     }
@@ -483,6 +557,11 @@
       margin-bottom: 3px;
     }
 
+    .contact-info .action-row {
+      justify-content: flex-start;
+      margin-top: 22px;
+    }
+
     iframe {
       width: 100%;
       height: 430px;
@@ -512,6 +591,12 @@
       }
     }
 
+    @media (max-width: 1100px) {
+      .approach-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     @media (max-width: 980px) {
       nav {
         display: none;
@@ -537,7 +622,12 @@
         padding: 78px 6%;
       }
 
-      .booking-box {
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-box,
+      .approach-intro {
         padding: 30px 22px;
       }
 
@@ -548,6 +638,20 @@
       .carousel {
         height: 230px;
       }
+
+      .hero-actions,
+      .action-row {
+        flex-direction: column;
+      }
+
+      .hero-actions a,
+      .action-row a,
+      .hero-actions button,
+      .action-row button {
+        width: 100%;
+        max-width: 260px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -557,6 +661,7 @@
     <a href="#home" class="logo">Enjoy Massage</a>
     <nav>
       <a href="#about">About</a>
+      <a href="#approach">Approach</a>
       <a href="#services">Services</a>
       <a href="#booking">Booking</a>
       <a href="#reviews">Reviews</a>
@@ -576,7 +681,19 @@
           Step into a quiet, private space designed for deep relaxation,
           soothing body care, and a refreshed state of mind.
         </p>
-        <a href="#booking" class="btn">Book Now</a>
+
+        <div class="hero-actions">
+          <button
+            style="background-color: #000; color: #fff; border: none; padding: 12px 18px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer;"
+            id="Anywhere_button_iframe"
+            class="anywhere-book-now-button"
+            data-booking-url="https://enjoymassage3cmz.setmore.com"
+            data-new-tab="false"
+          >Book now</button>
+
+          <a class="btn btn-outline" href="tel:+14067026740">Call Now</a>
+          <a class="btn btn-outline" href="sms:+14067026740">Text Us</a>
+        </div>
       </div>
     </section>
 
@@ -613,11 +730,101 @@
       </div>
     </section>
 
+    <!-- Therapeutic Approach -->
+    <section class="approach" id="approach">
+      <div class="section-heading">
+        <span>Our Approach</span>
+        <h2>Therapeutic massage designed with multiple techniques</h2>
+        <p>
+          We provide body care for clients who want relaxation, comfort, and relief
+          from daily tension.
+        </p>
+      </div>
+
+      <div class="approach-intro">
+        <h3>Eastern and Western methods for better relief</h3>
+        <p>
+          Each massage may combine Eastern and Western approaches to help reduce
+          discomfort, inflammation, stress, and muscle fatigue.
+        </p>
+        <p>
+          Our goal is to create a balanced massage experience that helps your body
+          feel renewed, relaxed, and restored.
+        </p>
+      </div>
+
+      <div class="approach-grid">
+        <div class="approach-card">
+          <h4>Deep Tissue Technique</h4>
+          <p>
+            Focused pressure helps relieve chronic back discomfort by working
+            deeper muscle and connective tissue areas to support recovery and comfort.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h4>Swedish Technique</h4>
+          <p>
+            Smooth, soothing movements help calm the body, reduce stress, and ease
+            general pain and tension.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h4>Shiatsu-Inspired Pressure</h4>
+          <p>
+            Eastern pressure and stretching methods help muscles feel refreshed,
+            renewed, and more energized.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h4>Hot Stone Support</h4>
+          <p>
+            Warm stones can encourage better blood flow, improve circulation, relax
+            the body, and reduce stress and tightness.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h4>Sports Recovery Focus</h4>
+          <p>
+            Attention is given to areas affected by exercise, hard work, and muscle
+            fatigue to create a more restorative experience.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h4>Reflexology-Inspired Care</h4>
+          <p>
+            Foot-focused pressure helps reduce stress and discomfort while supporting
+            overall wellness, energy, and relaxation.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h4>Relaxation & Stress Relief</h4>
+          <p>
+            Gentle, calming body care helps you feel renewed, refreshed, and ready
+            to support a healthier mind and body.
+          </p>
+        </div>
+
+        <div class="approach-card">
+          <h4>Personal Comfort</h4>
+          <p>
+            Every visit is centered on a quiet room, clean surroundings, steady care,
+            and a peaceful experience from beginning to end.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Services & Pricing -->
     <section class="services" id="services">
       <div class="section-heading">
         <span>Services & Pricing</span>
-        <h2>Massage services made for relaxation</h2>
+        <h2>Available massage menu</h2>
         <p>
           Choose the session length that fits your day. Cash discount pricing
           and regular pricing are shown below.
@@ -628,10 +835,10 @@
         <!-- Full Body Massage -->
         <article class="service-card">
           <div class="carousel service-carousel">
-            <img class="active" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1L-0O6Juxasb8QicSAXdnWLSQjLrVvGVr8HPij_dvsgW7cWCeMVBGB-12hqGhPUkx5oA&usqp=CAU" alt="Full body massage" />
-            <img src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" alt="Full body massage therapy" />
-            <img src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Relaxing body work massage" />
-            <img src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Body work massage session" />
+            <img class="active" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1L-0O6Juxasb8QicSAXdnWLSQjLrVvGVr8HPij_dvsgW7cWCeMVBGB-12hqGhPUkx5oA&usqp=CAU" alt="Full Body Massage" />
+            <img src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" alt="Full Body Massage session" />
+            <img src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Relaxing Full Body Massage" />
+            <img src="https://i.pinimg.com/736x/c0/e8/3f/c0e83fc3058518c785d6cfe1b15da601.jpg" alt="Body massage service" />
           </div>
 
           <div class="service-content">
@@ -668,10 +875,10 @@
         <!-- Foot Massage -->
         <article class="service-card">
           <div class="carousel service-carousel">
-            <img class="active" src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg" alt="Foot massage" />
-            <img src="https://i.pinimg.com/1200x/71/a4/b7/71a4b75a19fbadf33bc6dc340e91340c.jpg" alt="Foot reflexology massage" />
-            <img src="https://i.pinimg.com/1200x/2b/85/42/2b8542fd0d099c9771bb5b332d6f51a9.jpg" alt="Relaxing foot massage" />
-            <img src="https://i.pinimg.com/736x/76/48/7c/76487c07076e4b41fcce7c4ea35e2005.jpg" alt="Foot massage treatment" />
+            <img class="active" src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg" alt="Foot Massage" />
+            <img src="https://i.pinimg.com/1200x/71/a4/b7/71a4b75a19fbadf33bc6dc340e91340c.jpg" alt="Foot Massage service" />
+            <img src="https://i.pinimg.com/1200x/2b/85/42/2b8542fd0d099c9771bb5b332d6f51a9.jpg" alt="Relaxing Foot Massage" />
+            <img src="https://i.pinimg.com/736x/76/48/7c/76487c07076e4b41fcce7c4ea35e2005.jpg" alt="Foot care massage" />
           </div>
 
           <div class="service-content">
@@ -699,27 +906,26 @@
         <!-- Body & Foot Combo Massage -->
         <article class="service-card">
           <div class="carousel service-carousel">
-            <img class="active" src="https://i.pinimg.com/736x/f6/33/48/f6334826491861572c8e532a6a099cdc.jpg" alt="Body and foot combo massage" />
-            <img src="https://i.pinimg.com/736x/51/25/ef/5125efc1d8af786696c07c8bd95452ab.jpg" alt="Foot portion of combo massage" />
-            <img src="https://i.pinimg.com/736x/97/dc/96/97dc9699bc6c850ecd8776eaee3b7898.jpg" alt="Body portion of combo massage" />
+            <img class="active" src="https://i.pinimg.com/736x/54/c2/b1/54c2b1ee6b00865e42603449116164b6.jpg" alt="Body and Foot Combo Massage" />
+            <img src="https://i.pinimg.com/736x/85/64/96/856496ec230e2ea77a6e10f379017c10.jpg" alt="Body and Foot Combo Massage treatment" />
           </div>
 
           <div class="service-content">
-            <h3>Body & Foot Combo Massage</h3>
+            <h3>Body &amp; Foot Combo Massage</h3>
             <p>
-              A balanced session combining full-body relaxation with focused foot
+              A balanced session combining body relaxation with focused foot
               care. Best for guests who want overall muscle relief plus extra
               attention for tired feet in one complete appointment.
             </p>
 
             <div class="price-list">
               <strong>Cash Discount Pricing</strong>
-              <div class="price-row"><span>60 & 30 minutes</span><span>$110</span></div>
+              <div class="price-row"><span>60 &amp; 30 minutes</span><span>$110</span></div>
 
               <br />
 
               <strong>Regular Pricing</strong>
-              <div class="price-row"><span>60 & 30 minutes</span><span>$113</span></div>
+              <div class="price-row"><span>60 &amp; 30 minutes</span><span>$113</span></div>
             </div>
           </div>
         </article>
@@ -731,10 +937,22 @@
       <div class="booking-box">
         <h2>Ready to relax?</h2>
         <p>
-          Call Enjoy Massage to book your appointment. Same-day availability may
-          be limited, so calling ahead is recommended.
+          Book online with Setmore, or contact Enjoy Massage directly by phone
+          or text for appointment questions.
         </p>
-        <a class="btn" href="tel:4067026740">Call 406-702-6740</a>
+
+        <div class="action-row">
+          <button
+            style="background-color: #000; color: #fff; border: none; padding: 12px 18px; font-size: 14px; font-weight: 600; border-radius: 6px; cursor: pointer;"
+            id="Anywhere_button_iframe_booking"
+            class="anywhere-book-now-button"
+            data-booking-url="https://enjoymassage3cmz.setmore.com"
+            data-new-tab="false"
+          >Book now</button>
+
+          <a class="btn" href="tel:+14067026740">Call Now</a>
+          <a class="btn" href="sms:+14067026740">Text Us</a>
+        </div>
       </div>
     </section>
 
@@ -753,7 +971,7 @@
         </div>
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>“I booked a full body massage after a stressful week. It helped my shoulders and back feel so much better.”</p>
+          <p>“I booked a full body massage after a stressful week. My shoulders and back felt so much better.”</p>
           <strong>— Daniel M.</strong>
         </div>
         <div class="review-card">
@@ -779,7 +997,7 @@
         </div>
         <div class="review-card">
           <div class="stars">★★★★★</div>
-          <p>“I booked a full body massage after a stressful week. It helped my shoulders and back feel so much better.”</p>
+          <p>“I booked a full body massage after a stressful week. My shoulders and back felt so much better.”</p>
           <strong>— Daniel M.</strong>
         </div>
         <div class="review-card">
@@ -888,7 +1106,7 @@
             <span>+</span>
           </button>
           <div class="faq-answer">
-            <p>Please call as soon as possible if you need to cancel or reschedule, so the appointment time can be made available to another guest.</p>
+            <p>Please call or text as soon as possible if you need to cancel or reschedule, so the appointment time can be made available to another guest.</p>
           </div>
         </div>
 
@@ -917,7 +1135,7 @@
 
           <div class="contact-line">
             <strong>Phone</strong>
-            <a href="tel:4067026740">406-702-6740</a>
+            <a href="tel:+14067026740">406-702-6740</a>
           </div>
 
           <div class="contact-line">
@@ -931,7 +1149,10 @@
             Daily: 9:00 AM – 9:30 PM
           </div>
 
-          <a class="btn" href="tel:4067026740">Book by Phone</a>
+          <div class="action-row">
+            <a class="btn" href="tel:+14067026740">Call Now</a>
+            <a class="btn" href="sms:+14067026740">Text Us</a>
+          </div>
         </div>
 
         <iframe
@@ -945,13 +1166,20 @@
   </main>
 
   <footer>
-    © 2025 Enjoy Massage. All Rights Reserved.
+    © 2026 Enjoy Massage. All Rights Reserved.
   </footer>
 
+  <script
+    id="anywhere_book_now_script"
+    type="text/javascript"
+    src="https://assets.setmore.com/integration/book-now/live/v1/anywhere-book-now.js">
+  </script>
+
   <script>
-    // Service card carousels
     document.querySelectorAll(".service-carousel").forEach((carousel) => {
       const slides = carousel.querySelectorAll("img");
+      if (slides.length <= 1) return;
+
       let index = 0;
 
       setInterval(() => {
@@ -961,7 +1189,6 @@
       }, 3200);
     });
 
-    // FAQ accordion
     document.querySelectorAll(".faq-question").forEach((button) => {
       button.addEventListener("click", () => {
         const item = button.parentElement;
